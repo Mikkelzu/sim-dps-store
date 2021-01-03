@@ -1,0 +1,1 @@
+CREATE DATABASE simulation_storage_db;
