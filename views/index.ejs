@@ -28,7 +28,7 @@
 
                         <% data.forEach((item, index)=> { %>
 
-                            <div class="sim-item">
+                            <div class="sim-item" onclick='getRaiderIoDataForProfileName("<%= item.character_name %>", "<%= item.realm_name %>", "<%= item.region_name %>")'>
                                 <span>
                                     <%= item.character_name %>
                                 </span>
@@ -125,6 +125,34 @@
     <footer style="display:flex;">
         <span style="position: relative; left: 15px;">&copy; Mikku :)</span>
     </footer>
+
+    <script>
+        const options =  {
+            method: 'GET',
+            mode: "cors",
+            headers: new Headers({
+                'content-type': 'application/json',
+                'Access-Control-Allow-Headers': '*'
+                })
+        }
+
+        function getRaiderIoDataForProfileName(name, realm, region) {
+            fetch(`https://www.raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=mythic_plus_scores_by_season:current`, options)
+                .then((response) => {
+                    if (response.status !== 200) {
+                        console.log( response);
+                        return;
+                    }
+
+                    response.json().then((data) => {
+                        console.log(data);
+                    })
+                })
+                .catch((err) => {
+                    console.log('fetch error: ' + err);
+                })
+        }
+    </script>
 </body>
 
 </html>
