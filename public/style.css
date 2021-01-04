@@ -27,7 +27,8 @@ nav {
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	background-color: rgb(199, 199, 199);
+    background-color: #353535;
+    color: #fff;
 }
 
 footer {
@@ -54,30 +55,33 @@ li {
 	list-style: none;
 }
 
-.todo-list {
-	background-color: #f4f4f4;
+.sim-list {
+	background-color: #353535;
 	width: 100%;
 	border: 1px solid #f2f2f2;
 	border-radius: 6px;
-	padding: 5px;
+    padding: 5px;
+    color: #fff;
 }
 
-.todo-item {
+.sim-item {
 	position: relative;
 	margin-bottom: 15px;
 	border: 1px solid black;
 	transition: all 0.3s ease;
 	animation-name: showItemSlowly;
 	animation-duration: 0.5s;
-	padding: 5px;
+    padding: 5px;
+    background-color: #353535;
+    color: #fff;
 }
 
-.todo-item:hover {
+.sim-item:hover {
 	border-radius: 6px;
 	border-color: #7c6060;
 }
 
-.todo-item span {
+.sim-item span {
 	font-size: 18px;
 	font-weight: bold;
 	transition: all ease 0.3s;
@@ -85,12 +89,12 @@ li {
 	text-transform: uppercase;	
 }
 
-.todo-item span:hover {
+.sim-item span:hover {
 	color: rgb(82, 27, 27);
 }
 
-.todo-item-desc {
-	color: rgb(66, 66, 66);
+.sim-item-desc {
+	color: rgb(151, 150, 150);
 }
 
 .btn-cust {
@@ -117,4 +121,60 @@ li {
 label {
 	font-size: 12px;
 	text-transform: uppercase;
+}
+
+.search-title {
+    font-size: 24px;
+    text-shadow: #7c6060;
+}
+
+.srch {
+    width: 25%;
+}
+
+.Mage {
+    color: #3fc7eb;
+}
+.Rogue {
+    color: #fff468;
+}
+
+.DeathKnight {
+    color: #c41e3a;
+}
+
+.DemonHunter {
+    color: #a330c9;
+}
+
+.Druid {
+    color: #ff7c0a;
+}
+
+.Hunter {
+    color: #aad372;
+}
+
+.Monk {
+    color: #00ff98;
+}
+
+.Paladin {
+    color: #f48cba;
+}
+
+.Priest {
+    color: #ffffff;
+}
+
+.Shaman {
+    color: #0070dd;
+}
+
+.Warlock {
+    color: #8788ee;
+}
+
+.Warrior {
+    color: #c69b6d;
 }

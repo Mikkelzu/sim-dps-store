@@ -4,7 +4,7 @@ const router = express.Router()
 const connection = require('../database/connection-pool')
 
 router.get('/', (req, res, next) => {
-    connection.query("SELECT * FROM sim_data", (err, result, fields) => {
+    connection.query("SELECT * FROM sim_data ORDER BY sim_date DESC", (err, result, fields) => {
         if (!err) {
             console.log(result);
             res.render('index', {data: result})

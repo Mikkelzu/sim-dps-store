@@ -2,48 +2,47 @@
 <html>
 
 <head>
-	<title>sim store</title>
-	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-		integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-	<link rel="stylesheet" href="/stylesheets/giga.components.css" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    <title>sim store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-
-	<nav>
-		<span class="logo">Sim store</span>
-		<!-- <ul>
+    <nav>
+        <span class="logo">Sim store</span>
+        <!-- <ul>
 			<li>
 				<a href="#">Add sim data</a>
 			</li>
 		</ul> -->
-	</nav>
-	<div class="content">
-		<div class="container">
-			<div class="row">
+    </nav>
+    <div class="content">
+        <div class="container">
+            <div class="row">
                 <div class="col">
-                    <% if (data.length != 0) { %>
+                    <% if (data.length !=0) { %>
 
-                        <% data.forEach((item, index) => { %>
+                        <% data.forEach((item, index)=> { %>
 
-                            <div class="todo-item">
+                            <div class="sim-item">
                                 <span>
                                     <%= item.character_name %>
                                 </span>
                                 |
                                 <span>
-                                    <%= item.region_name %> <%= item.realm_name %>
+                                    <%= item.region_name %>
+                                        <%= item.realm_name %>
                                 </span>
 
-                                <p class="todo-item-desc">
-                                    <%= item.character_class %> <%= item.character_spec %>
+                                <p class="sim-item-desc <%= item.character_class.replace(/ /g, "") %>">
+                                    <%= item.character_class %>
+                                        <%= item.character_spec %>
                                 </p>
-                                <p class="todo-item-desc">
+                                <p class="sim-item-desc">
                                     <%= item.sim_dps.toLocaleString(undefined, {minimumFractionDigits: 0}) %> DPS
                                 </p>
 
@@ -57,71 +56,75 @@
                                 </form>
                             </div>
 
-                        <% }) %>
-
-
-                    <% } else { %>
-                        <div class="todo-list">
-                            No sims found
-                        </div>
-                    <% } %>
+                            <% }) %>
+                                <% } else { %>
+                                    <div class="sim-list">
+                                        No sims found
+                                    </div>
+                                    <% } %>
                 </div>
 
                 <div class="col">
-                    <div class="todo-list">
-						<form action="/new" method="POST">
-							<div class="form-group">
-								<label>Character Name</label>
-								<input type="text" name="char_name" class="form-control" placeholder="Eboyweeb">
-								<small id="titlehelp" class="form-text text-muted">Your character name here</small>
-							</div>
-							<div class="form-group">
-								<label>Region</label>
-								<input type="text" class="form-control" name="region" placeholder="EU">
-								<small class="form-text text-muted">Your region; EU, NA for instance</small>
-							</div>
-							<div class="form-group">
-								<label>Realm</label>
-								<input type="text" name="realm" class="form-control" placeholder="Ravencrest">
-								<small class="form-text text-muted">The realm the character exists on</small>
-							</div>
+                    <div class="sim-list">
+                        <form action="/new" method="POST">
+                            <div class="form-group">
+                                <label>Character Name</label>
+                                <input type="text" name="char_name" class="form-control" placeholder="Eboyweeb">
+                                <small id="titlehelp" class="form-text text-muted">Your character name here</small>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col">
+                                    <label>Region</label>
+                                    <input type="text" class="form-control" name="region" placeholder="EU">
+                                    <small class="form-text text-muted">Your region; EU, NA for instance</small>
+                                </div>
+                                <div class="col">
+                                    <label>Realm</label>
+                                    <input type="text" name="realm" class="form-control" placeholder="Ravencrest">
+                                    <small class="form-text text-muted">The realm the character exists on</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
 
-							<div class="form-group">
-								<label>Class</label>
-								<input type="text" name="class" class="form-control" placeholder="Rogue">
-								<small class="form-text text-muted">Set the character class</small>
                             </div>
 
                             <div class="form-group">
-								<label>Spec</label>
-								<input type="text" name="spec" class="form-control" placeholder="Outlaw">
-								<small class="form-text text-muted">Set the character spec</small>
+                                <label>Class</label>
+                                <input type="text" name="class" class="form-control" placeholder="Rogue">
+                                <small class="form-text text-muted">Set the character class</small>
                             </div>
 
                             <div class="form-group">
-								<label>Sim type</label>
-								<input type="text" name="sim_type" class="form-control" placeholder="Patchwerk, Dungeon Slice BETA etc.">
-								<small class="form-text text-muted">Set the type of sim you ran to categorize the data</small>
+                                <label>Spec</label>
+                                <input type="text" name="spec" class="form-control" placeholder="Outlaw">
+                                <small class="form-text text-muted">Set the character spec</small>
                             </div>
 
                             <div class="form-group">
-								<label>Simmed Dps</label>
-								<input type="text" name="sim_dps" class="form-control" placeholder="999999999">
-								<small class="form-text text-muted">Set the simmed dps here</small>
+                                <label>Sim type</label>
+                                <input type="text" name="sim_type" class="form-control"
+                                    placeholder="Patchwerk, Dungeon Slice BETA etc.">
+                                <small class="form-text text-muted">Set the type of sim you ran to categorize the
+                                    data</small>
                             </div>
-                            
-							<button type="submit" class="btn btn-info"><i class="fas fa-save"></i></button>
-						</form>
-					</div>
+
+                            <div class="form-group">
+                                <label>Simmed Dps</label>
+                                <input type="text" name="sim_dps" class="form-control" placeholder="999999999">
+                                <small class="form-text text-muted">Set the simmed dps here</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-info"><i class="fas fa-save"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
-		</div>
-	</div>
+        </div>
+    </div>
 
-	<footer style="display:flex;">
-		<span style="position: relative; left: 15px;">&copy; Mikku :)</span>
-	</footer>
-
+    <footer style="display:flex;">
+        <span style="position: relative; left: 15px;">&copy; Mikku :)</span>
+    </footer>
 </body>
 
 </html>
