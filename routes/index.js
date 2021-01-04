@@ -3,7 +3,7 @@ const router = express.Router()
 
 const connection = require('../database/connection-pool')
 
-roroutertuer.get('/', (req, res, next) => {
+router.get('/', (req, res, next) => {
     connection.query("SELECT * FROM sim_data", (err, result, fields) => {
         if (!err) {
             console.log(result);
