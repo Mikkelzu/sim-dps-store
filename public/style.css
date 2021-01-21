@@ -97,6 +97,10 @@ li {
 	color: rgb(151, 150, 150);
 }
 
+span > a > i {
+    color: white;
+}
+
 .btn-cust {
 	margin-top: 15px;
 	margin-bottom: 10px;

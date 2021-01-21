@@ -28,15 +28,20 @@
 
                         <% data.forEach((item, index)=> { %>
 
-                            <div class="sim-item"
-                                onclick='getRaiderIoDataForProfileName("<%= item.character_name %>", "<%= item.realm_name %>", "<%= item.region_name %>")'>
+                            <!-- <div class="sim-item"
+                                onclick='getRaiderIoDataForProfileName("<%= item.character_name %>", "<%= item.realm_name %>", "<%= item.region_name %>")'> -->
+                            <div class="sim-item">
                                 <span>
                                     <%= item.character_name %>
                                 </span>
                                 |
                                 <span>
                                     <%= item.region_name %>
-                                        <%= item.realm_name %>
+                                    <%= item.realm_name %>
+
+                                    <a target="_blank" href="http://raider.io/characters/<%= item.region_name %>/<%= item.realm_name %>/<%= item.character_name %>">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
                                 </span>
 
                                 <p class="sim-item-desc <%= item.character_class.replace(/ /g, "") %>">
