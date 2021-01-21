@@ -128,31 +128,31 @@
     </footer>
 
     <script>
-        const options = {
-            method: 'GET',
-            mode: "cors",
-            headers: new Headers({
-                'content-type': 'application/json',
-                'Access-Control-Allow-Headers': '*'
-            })
-        }
+        // const options = {
+        //     method: 'GET',
+        //     mode: "cors",
+        //     headers: new Headers({
+        //         'content-type': 'application/json',
+        //         'Access-Control-Allow-Headers': '*'
+        //     })
+        // }
 
-        function getRaiderIoDataForProfileName(name, realm, region) {
-            fetch(`http://www.raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=mythic_plus_scores_by_season:current`, options)
-                .then((response) => {
-                    if (response.status !== 200) {
-                        console.log(response);
-                        return;
-                    }
+        // function getRaiderIoDataForProfileName(name, realm, region) {
+        //     fetch(`http://www.raider.io/api/v1/characters/profile?region=${region}&realm=${realm}&name=${name}&fields=mythic_plus_scores_by_season:current`, options)
+        //         .then((response) => {
+        //             if (response.status !== 200) {
+        //                 console.log(response);
+        //                 return;
+        //             }
 
-                    response.json().then((data) => {
-                        console.log(data);
-                    })
-                })
-                .catch((err) => {
-                    console.log('fetch error: ' + err);
-                })
-        }
+        //             response.json().then((data) => {
+        //                 console.log(data);
+        //             })
+        //         })
+        //         .catch((err) => {
+        //             console.log('fetch error: ' + err);
+        //         })
+        // }
     </script>
 </body>
 
