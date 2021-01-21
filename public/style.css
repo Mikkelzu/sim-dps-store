@@ -78,7 +78,7 @@ li {
 
 .sim-item:hover {
 	border-radius: 6px;
-	border-color: #7c6060;
+	border-color: #ffbd0a;
 }
 
 .sim-item span {
@@ -90,7 +90,7 @@ li {
 }
 
 .sim-item span:hover {
-	color: rgb(82, 27, 27);
+	color: #ffbd0a;
 }
 
 .sim-item-desc {
